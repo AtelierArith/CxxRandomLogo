@@ -20,17 +20,18 @@ Eigen::Matrix2d rand_rotmat(std::mt19937 &rng) {
 
 Eigen::Matrix2d diagm(double d1, double d2) {
   Eigen::Matrix2d D;
-  D << d1, 0, d2, 0;
+  D << d1, 0,
+       0, d2;
   return D;
 }
 
 SigmaFactorIFS rand_sigma_factor_ifs(std::mt19937 &rng) {
-  std::uniform_int_distribution<> dist_n(1, 4);
+  std::uniform_int_distribution<> dist_n(2, 4);
   std::uniform_int_distribution<> dist_b(0, 1);
   int N = dist_n(rng);
   auto αₗ = 0.5 * (5 + N);
   auto αᵤ = 0.5 * (6 + N);
-  auto σfactor = uniform(rng, αₗ, αᵤ);
+  double σfactor = uniform(rng, αₗ, αᵤ);
   Eigen::MatrixXd svs = sample_svs(rng, σfactor, N);
   std::vector<Affine> transforms;
   std::vector<double> probs;

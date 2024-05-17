@@ -1,5 +1,3 @@
-find_package(Eigen3 REQUIRED)
-
 add_library(util util.cpp)
 target_compile_features(myproject_compiler_flags INTERFACE cxx_std_17)
 target_include_directories(util INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})

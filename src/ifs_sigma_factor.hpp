@@ -1,3 +1,5 @@
-#include <random>
+#pragma once
 
-Eigen::MatrixXd sample_svs(std::mt19937 &rng, int N, double α);
+#include <random>
+#include <Eigen/Dense>
+Eigen::MatrixXd sample_svs(std::mt19937 &rng, double α, int N);

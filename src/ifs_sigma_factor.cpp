@@ -2,8 +2,9 @@
 #include <Eigen/Dense>
 
 #include "util.hpp"
+#include "ifs_sigma_factor.hpp"
 
-Eigen::MatrixXd sample_svs(std::mt19937 &rng, int N, double α) {
+Eigen::MatrixXd sample_svs(std::mt19937 &rng, double α, int N) {
 
   Eigen::MatrixXd singular_values;
   // set the rows and columns of a MatrixXd at runtime
