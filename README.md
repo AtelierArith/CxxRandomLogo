@@ -10,6 +10,7 @@ Port [AtelierArith/RandomLogos.jl](https://github.com/AtelierArith/RandomLogos.j
 # Setup
 
 ```console
+$ julia -e 'using Pkg; Pkg.activate(); Pkg.add("CxxWrap.jl")'
 $ bash build.sh
 $ julia --project -e 'using Pkg; Pkg.instantiate()'
 ```
