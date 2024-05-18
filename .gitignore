@@ -35,3 +35,7 @@
 build
 *.csv
 *.png
+
+## Julia
+
+Manifest.toml
