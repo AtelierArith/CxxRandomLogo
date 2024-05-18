@@ -44,6 +44,8 @@ julia> using CxxRandomLogo: draw
 julia> [draw() draw() draw(); draw() draw() draw()]
 ```
 
+<img width="1033" alt="image" src="https://github.com/AtelierArith/CxxRandomLogo/assets/16760547/f9074553-dd6a-413d-8642-bbb38fe6da49">
+
 ## Pluto demo
 
 ```julia
