@@ -1,6 +1,6 @@
 # CxxRandomLogo
 
-Port AtelierArith/RandomLogos.jl written Julia to C++.
+Port [AtelierArith/RandomLogos.jl](https://github.com/AtelierArith/RandomLogos.jl) written in Julia to C++.
 
 ## Requirements
 
