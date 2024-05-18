@@ -16,7 +16,7 @@ end # module MyCxxInterface
 using .MyCxxInterface
 
 using ImageCore
-using FixedPointNumbers
+using Colors
 
 function draw()
 	N = 10000
@@ -30,11 +30,13 @@ function draw()
 	@. xs = (W - 5 - 5) * (xs - mx)/(Mx - mx) + 5
 	@. ys = (H - 5 - 5) * (ys - my)/(My - my) + 5
 
-	canvas = zeros(Gray{N0f8}, H, W)
+	c = rand((Colors.JULIA_LOGO_COLORS.red, Colors.JULIA_LOGO_COLORS.green, Colors.JULIA_LOGO_COLORS.blue, Colors.JULIA_LOGO_COLORS.purple))
+
+	canvas = zeros(RGB{N0f8}, H, W)
 	for (x, y) in zip(xs, ys)
 		iy = floor(Int, y)
 		ix = floor(Int, x)
-		canvas[iy, ix] = Gray(one(N0f8))
+		canvas[iy, ix] = c
 	end
 	canvas
 end
