@@ -13,4 +13,4 @@ target_compile_features(myproject_compiler_flags INTERFACE cxx_std_17)
 add_subdirectory(src) # affine fern
 
 add_executable(CxxRandomLogo main.cpp)
-target_link_libraries(CxxRandomLogo PUBLIC ifs  Eigen3::Eigen myproject_compiler_flags)
+target_link_libraries(CxxRandomLogo PUBLIC point_generation  Eigen3::Eigen myproject_compiler_flags)
