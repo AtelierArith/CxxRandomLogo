@@ -10,6 +10,8 @@ Port [AtelierArith/RandomLogos.jl](https://github.com/AtelierArith/RandomLogos.j
 # Setup
 
 ```console
+$ git clone https://github.com/AtelierArith/CxxRandomLogo.git
+$ cd CxxRandomLogo
 $ julia -e 'using Pkg; Pkg.activate(); Pkg.add("CxxWrap.jl")'
 $ bash build.sh
 $ julia --project -e 'using Pkg; Pkg.instantiate()'
@@ -19,11 +21,61 @@ $ julia --project -e 'using Pkg; Pkg.instantiate()'
 
 ## C++ Application
 
-```console
-$ bash build.sh
-$ ./build/bin/CxxRandomLogo > out.csv
-$ julia vis.jl
+Our C++ implementation provides point generation features that can be accessed from `generate_points`.
+
+```cpp
+// main.cpp
+#include <iostream>
+#include <random>
+#include "point_generation.hpp"
+
+int main() {
+  // 100000 points
+  auto xy = generate_points();
+  auto xs = xy.first; // x coordinates
+  auto ys = xy.second; // y coordinates
+  // header
+  std::cout << "x,y" << std::endl;
+  // contents
+  for (int i = 0; i < xs.size(); i++) {
+    auto x = xs[i];
+    auto y = ys[i];
+    std::cout << x << "," << y << std::endl;
+  }
+  return 0;
+};
 ```
+
+To build our C++ code, just run `bash build.sh`.
+
+```console
+$ bash build.sh # This script builds our C++ code
+```
+
+We'll see that `./build/bin` is generated and the executable file `CxxRandomLogo` corresponds to `main.cpp` is generated. To store results as a CSV file, just run the following command:
+
+```console
+$ ./build/bin/CxxRandomLogo > out.csv
+$ head out.csv
+x,y
+0,0
+-0.380685,0.692171
+-1.09698,0.779349
+-1.61693,0.45568
+0.489574,-0.189705
+-0.893767,-0.739919
+-0.0128572,-1.12225
+-0.594527,-1.4382
+-0.226511,-1.66354
+```
+
+We can visalize the result using Julia script named `vis.jl`.
+
+```console
+$ julia vis.jl # out.png
+```
+
+This generates `out.png`
 
 ## Julia Interface
 
