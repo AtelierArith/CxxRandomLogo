@@ -39,3 +39,5 @@ build
 ## Julia
 
 Manifest.toml
+deps/build
+deps/build.log
