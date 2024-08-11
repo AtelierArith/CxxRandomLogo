@@ -6,15 +6,14 @@ Port [AtelierArith/RandomLogos.jl](https://github.com/AtelierArith/RandomLogos.j
 
 - CMake
 - Julia
+  - See https://github.com/JuliaLang/juliaup to install Julia
 
 # Setup
 
 ```console
 $ git clone https://github.com/AtelierArith/CxxRandomLogo.git
 $ cd CxxRandomLogo
-$ julia -e 'using Pkg; Pkg.activate(); Pkg.add("CxxWrap.jl")'
-$ bash build.sh
-$ julia --project -e 'using Pkg; Pkg.instantiate()'
+$ make
 ```
 
 # How to use
@@ -46,10 +45,10 @@ int main() {
 };
 ```
 
-To build our C++ code, just run `bash build.sh`.
+To build our C++ code, just run `make`.
 
 ```console
-$ bash build.sh # This script builds our C++ code
+$ make
 ```
 
 We'll see that `./build/bin` is generated and the executable file `CxxRandomLogo` corresponds to `main.cpp` is generated. To store results as a CSV file, just run the following command:
