@@ -1,0 +1,19 @@
+module_name = "CxxRandomLogoWrapper"
+uuid = "70232218-a02e-473b-88cd-13bb2e7e1975"
+
+lib_basename = "$(@__DIR__)/../deps/libjlCxxRandomLogoWrapper"
+
+input = [
+    "/usr/local/include/eigen3/Eigen/Core",
+    "../src/affine.hpp",
+]
+
+incdlue_dirs = [
+    "../src",
+    "/usr/local/include/eigen3",
+]
+
+cxx-std = "c++17"
+
+# all generated code in a single file:
+n_classes_per_file = 0
