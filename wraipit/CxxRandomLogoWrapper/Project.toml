@@ -1,0 +1,17 @@
+name = "CxxRandomLogoWrapper"
+uuid = "70232218-a02e-473b-88cd-13bb2e7e1975"
+
+[deps]
+CxxWrap = "1f15a43c-97ca-5a2a-ae31-89f07a497df4"
+EasyEigenInterface = "072be04e-28e5-4951-9181-bc1e123c5dec"
+Libdl = "8f399da3-3557-5675-b5ff-fb832c97cbdb"
+
+[compat]
+CxxWrap = "0.16"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+Aqua = "4c88cf16-eb10-579e-8560-4a9242c79595"
+
+[targets]
+test = ["Test", "Aqua"]
