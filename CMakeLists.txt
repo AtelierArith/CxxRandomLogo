@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.24)
+cmake_minimum_required(VERSION 3.22)
 project(CxxRandomLogo)
 
 find_package(Eigen3 REQUIRED)

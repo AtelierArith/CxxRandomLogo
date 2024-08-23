@@ -6,6 +6,7 @@
     - CMake
 
 ```bash
+$ CXXWRAP_PREFIX=`julia --project -e 'using CxxWrap; CxxWrap.prefix_path() |> print'`
 $ cmake -S . -B ./build
 $ cmake --build ./build
 ```
