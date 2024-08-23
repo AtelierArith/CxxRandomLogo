@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.22 )
-find_package(Eigen3 REQUIRED)
 
 project(CxxRandomLogoWrapper)
+
+find_package(Eigen3 REQUIRED)
 
 set(CMAKE_MACOSX_RPATH 1)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${CMAKE_PROJECT_NAME}/deps")
@@ -123,7 +124,7 @@ set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS "${WRAPIT_DEPENDS
 add_library(${WRAPPER_LIB} SHARED ${WRAPIT_PRODUCTS} ../src/affine.cpp)
 set_target_properties(${WRAPPER_LIB}
   PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${WRAPPER_JULIA_PACKAGE_DIR}/deps)
-target_include_directories(${WRAPPER_LIB} PRIVATE ${CMAKE_SOURCE_DIR}/../src)
+target_include_directories(${WRAPPER_LIB} PUBLIC ${CMAKE_SOURCE_DIR}/../src)
 target_link_libraries(${WRAPPER_LIB} JlCxx::cxxwrap_julia Eigen3::Eigen)
 
 # Installation paths:

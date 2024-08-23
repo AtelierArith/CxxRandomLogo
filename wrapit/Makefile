@@ -1,10 +1,8 @@
 .PHONY: build clean
 
 build:
-	@echo "Building wrapit..."
-	CXXWRAP_PREFIX=`julia --project -e 'using CxxWrap; CxxWrap.prefix_path() |> print'`
-	cmake -S $(CURDIR) -B $(CURDIR)/build -DCMAKE_PREFIX_PATH=$(CXXWRAP_PREFIX)
-	cmake --build $(CURDIR)/build
+	cmake -S . -B ./build -DCMAKE_BUILD_TYPE=Release
+	cmake --build ./build --config Release -j `nproc`
 
 clean:
 	$(RM) -r $(CURDIR)/build
